@@ -1,0 +1,350 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    position: relative;
+    width: 360px;
+    height: 450px;
+    perspective: 1000px;
+}
+
+.form-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: transform 0.8s;
+}
+
+.wrapper .signup-box {
+    transform: rotateY(180deg);
+}
+
+.wrapper.active .login-box {
+    transform: rotateY(180deg);
+}
+
+.wrapper.active .signup-box {
+    transform: rotateY(360deg);
+}
+
+.form-box h2 {
+    margin: 0 0 20px;
+    color: #03e9f4;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px #03e9f4,
+                 0 0 10px #03e9f4,
+                 0 0 20px #03e9f4,
+                 0 0 40px #03e9f4;
+}
+
+
+.user-box {
+    position: relative;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    line-height: 1;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:not(:placeholder-shown) ~ label {
+    top: -20px;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+
+.form-box .line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, 03e9f4);
+}
+
+.line.top {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: animateTop 2s linear infinite;
+}
+
+@keyframes animateTop {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.line.bottom {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: animateBottom 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animateBottom {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.line.right {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: animateRight 2s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes animateRight {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.line.left {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(0deg, transparent, #03e9f4);
+    animation: animateLeft 2s linear infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes animateLeft {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+.form-box a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    margin-top: 20px;
+    letter-spacing: 4px;
+    transition: 0.5s;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.form-box a:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 100px #03e9f4;
+}
+
+.form-box a span {
+    position: absolute;
+    display: block;
+}
+
+.form-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: #03e9f4;
+    animation: btnAnim1 1s linear infinite;
+}
+
+@keyframes btnAnim1 {
+    0% {
+        left: -100%
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.form-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: #03e9f4;
+    animation: btnAnim2 1s linear infinite;
+    animation-delay: .25s;
+}
+
+@keyframes btnAnim2 {
+    0% {
+        top: -100%
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.form-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: #03e9f4;
+    animation: btnAnim3 1s linear infinite;
+    animation-delay: .5s;
+}
+
+@keyframes btnAnim3 {
+    0% {
+        right: -100%
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.form-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: #03e9f4;
+    animation: btnAnim4 1s linear infinite;
+    animation-delay: .75s;
+}
+
+@keyframes btnAnim4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+.switch {
+    margin-top: 15px;
+    color: #bbb;
+    font-size: 14px;
+    text-align: center;
+}
+
+.switch span {
+    color: #03e9f4;
+    cursor: pointer;
+}
+
+
+/* for responsive */
+@media (max-width: 300px) {
+
+    /* Disable flip on very small devices */
+    .wrapper {
+        transform: none !important;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        perspective: none;
+    }
+
+    /* Show forms normally, no absolute positioning */
+    .login-box,
+    .signup-box {
+        position: relative !important;
+        transform: none !important;
+        height: auto !important;
+        padding: 30px 25px;
+        display: block !important;
+        backface-visibility: visible !important;
+    }
+
+    /* Hide signup form by default */
+    #flip:not(:checked)~.wrapper .signup-box {
+        display: none;
+    }
+
+    /* Hide login form when flipped */
+    #flip:checked~.wrapper .login-box {
+        display: none;
+    }
+
+    #flip:checked~.wrapper .signup-box {
+        display: block;
+    }
+
+    /* Adjust spacing for inputs */
+    .user-box {
+        margin-bottom: 25px;
+    }
+}

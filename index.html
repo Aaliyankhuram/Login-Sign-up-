@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login &Signup Form </title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="login-box form-box">
+            <span class="line top"></span>
+            <span class="line right"></span>
+            <span class="line bottom"></span>
+            <span class="line left"></span>
+
+            <h2>Login</h2>
+            <form>
+                <div class="user-box">
+                    <input type="text" required placeholder=" ">
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" required placeholder=" ">
+                    <label>Password</label>
+                </div>
+                <a href="./dashboard.html">Login
+                    <span></span><span></span><span></span><span></span>
+                </a>
+                <p class="switch">Not a member? <span onclick="toggleForm()">Signup now</span></p>
+            </form>
+        </div>
+        <div class="signup-box form-box">
+            <span class="line top"></span>
+            <span class="line right"></span>
+            <span class="line bottom"></span>
+            <span class="line left"></span>
+
+            <h2>Signup</h2>
+            <form>
+                <div class="user-box">
+                    <input type="text" required placeholder=" ">
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="email" required placeholder=" ">
+                    <label>Email</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" required placeholder=" ">
+                    <label>Password</label>
+                </div>
+                <a href="./dashboard1.html">Sign Up
+                    <span></span><span></span><span></span><span></span>
+                </a>
+                <p class="switch">Already a member? <span onclick="toggleForm()">Login now</span></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            document.querySelector(".wrapper").classList.toggle("active");
+        }
+    </script>
+</body>
+
+</html>
